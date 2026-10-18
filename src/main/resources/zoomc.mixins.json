@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.nothearyt.zoomc.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "GameRendererMixin",
+    "MouseHandlerMixin",
+    "EntityMixin"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}
