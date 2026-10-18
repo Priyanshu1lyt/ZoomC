@@ -6,6 +6,7 @@
   "description": "Smooth, simple zoom. Hold C to zoom, scroll to adjust, double-tap C to lock the zoom.",
   "authors": ["NotHeartYT"],
   "license": "MIT",
+  "icon": "assets/zoomc/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": ["com.nothearyt.zoomc.ZoomCClient"]
