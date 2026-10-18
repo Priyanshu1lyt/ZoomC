@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "zoomc",
+  "version": "${version}",
+  "name": "ZoomC",
+  "description": "Smooth, simple zoom. Hold C to zoom, scroll to adjust, double-tap C to lock the zoom.",
+  "authors": ["NotHeartYT"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.nothearyt.zoomc.ZoomCClient"]
+  },
+  "mixins": ["zoomc.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.17.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
