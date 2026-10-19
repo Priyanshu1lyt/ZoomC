@@ -1,4 +1,4 @@
-package com.nothearyt.zoomc;
+packagepackage com.nothearyt.zoomc;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fabricmc.api.ClientModInitializer;
@@ -15,15 +15,19 @@ public class ZoomCClient implements ClientModInitializer {
             KeyMapping.Category.register(Identifier.fromNamespaceAndPath(MOD_ID, "main"));
 
     public static KeyMapping zoomKey;
+    public static KeyMapping lockKey;
     public static KeyMapping resetKey;
 
     @Override
     public void onInitializeClient() {
         zoomKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.zoomc.zoom", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_C, CATEGORY));
+        lockKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
+                "key.zoomc.lock", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY));
         resetKey = KeyBindingHelper.registerKeyBinding(new KeyMapping(
                 "key.zoomc.reset", InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_UNKNOWN, CATEGORY));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> ZoomHandler.tick(client));
     }
 }
+
