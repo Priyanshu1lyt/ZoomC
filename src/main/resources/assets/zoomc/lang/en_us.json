@@ -1,5 +1,6 @@
 {
   "key.zoomc.zoom": "Zoom (hold)",
+  "key.zoomc.lock": "Toggle Zoom Lock",
   "key.zoomc.reset": "Reset Zoom Level",
   "key.category.zoomc.main": "ZoomC"
 }
