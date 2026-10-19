@@ -8,13 +8,12 @@ public final class ZoomHandler {
     public static final double MAX_ZOOM = 40.0;
     public static final double DEFAULT_ZOOM = 4.0;
     private static final double SCROLL_STEP = 1.15;
-    private static final long DOUBLE_TAP_MS = 300;
+    private static final long DOUBLE_TAP_MS = 350;
 
     private static double targetZoom = DEFAULT_ZOOM;
     private static double prevFactor = 1.0;
     private static double factor = 1.0;
     private static boolean locked = false;
-    private static boolean wasDown = false;
     private static long lastPress = 0;
 
     private ZoomHandler() {}
@@ -22,7 +21,8 @@ public final class ZoomHandler {
     public static void tick(Minecraft mc) {
         boolean down = ZoomCClient.zoomKey.isDown();
 
-        if (down && !wasDown) {
+        // every press counts, even a quick tap between two ticks
+        while (ZoomCClient.zoomKey.consumeClick()) {
             long now = System.currentTimeMillis();
             if (locked) {
                 locked = false;
@@ -31,8 +31,8 @@ public final class ZoomHandler {
             }
             lastPress = now;
         }
-        wasDown = down;
 
+        if (ZoomCClient.lockKey.consumeClick()) locked = !locked;
         if (ZoomCClient.resetKey.consumeClick()) targetZoom = DEFAULT_ZOOM;
         if (mc.screen != null) locked = false;
 
@@ -62,4 +62,4 @@ public final class ZoomHandler {
     public static double sensitivityScale() {
         return 1.0 / Math.max(1.0, Math.sqrt(factor));
     }
-}
+               }
